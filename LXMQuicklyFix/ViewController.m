@@ -17,6 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self test:nil];
+    
+    self.view.backgroundColor = [UIColor redColor];
+}
+
+- (void)test:(NSString *)str {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:str forKey:@"str"];
 }
 
 

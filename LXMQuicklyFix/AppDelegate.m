@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LXMQuicklyFix.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    NSString *js = @"replaceInstanceMethod('ViewController', 'test:', function(instance, originInvocation, originArguments){ \
+           if (!originArguments[0]) { \
+               console.log('nil goes here'); \
+           } else { \
+               runInvocation(originInvocation); \
+           } \
+       });";
+    
+//    [[LXMQuicklyFix sharedInstance] evaluate:js];
+    
     return YES;
 }
 

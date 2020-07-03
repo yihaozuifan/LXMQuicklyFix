@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface QuicklyFix : NSObject
+@interface LXMQuicklyFix : NSObject
 + (instancetype)sharedInstance;
 
 - (void)evaluate:(NSString *)jsString;

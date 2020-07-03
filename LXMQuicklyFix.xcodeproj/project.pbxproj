@@ -16,6 +16,8 @@
 		829B6ED124AF0E4C00B38769 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 829B6ED024AF0E4C00B38769 /* main.m */; };
 		829B6EDB24AF0E4C00B38769 /* LXMQuicklyFixTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 829B6EDA24AF0E4C00B38769 /* LXMQuicklyFixTests.m */; };
 		829B6EE624AF0E4C00B38769 /* LXMQuicklyFixUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 829B6EE524AF0E4C00B38769 /* LXMQuicklyFixUITests.m */; };
+		829B6EF624AF0EA400B38769 /* LXMQuicklyFix.m in Sources */ = {isa = PBXBuildFile; fileRef = 829B6EF524AF0EA400B38769 /* LXMQuicklyFix.m */; };
+		829B6EFD24AF113C00B38769 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 829B6EFC24AF113C00B38769 /* Aspects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,11 @@
 		829B6EE124AF0E4C00B38769 /* LXMQuicklyFixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LXMQuicklyFixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		829B6EE524AF0E4C00B38769 /* LXMQuicklyFixUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXMQuicklyFixUITests.m; sourceTree = "<group>"; };
 		829B6EE724AF0E4C00B38769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		829B6EF424AF0EA400B38769 /* LXMQuicklyFix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXMQuicklyFix.h; sourceTree = "<group>"; };
+		829B6EF524AF0EA400B38769 /* LXMQuicklyFix.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXMQuicklyFix.m; sourceTree = "<group>"; };
+		829B6EF724AF0FBB00B38769 /* LXMQuicklyFixConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXMQuicklyFixConst.h; sourceTree = "<group>"; };
+		829B6EFB24AF113C00B38769 /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
+		829B6EFC24AF113C00B38769 /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +111,7 @@
 		829B6EBD24AF0E4700B38769 /* LXMQuicklyFix */ = {
 			isa = PBXGroup;
 			children = (
+				829B6EF324AF0E8F00B38769 /* QuicklyFix */,
 				829B6EBE24AF0E4700B38769 /* AppDelegate.h */,
 				829B6EBF24AF0E4700B38769 /* AppDelegate.m */,
 				829B6EC124AF0E4700B38769 /* SceneDelegate.h */,
@@ -135,6 +143,26 @@
 				829B6EE724AF0E4C00B38769 /* Info.plist */,
 			);
 			path = LXMQuicklyFixUITests;
+			sourceTree = "<group>";
+		};
+		829B6EF324AF0E8F00B38769 /* QuicklyFix */ = {
+			isa = PBXGroup;
+			children = (
+				829B6EFA24AF113C00B38769 /* Aspects */,
+				829B6EF724AF0FBB00B38769 /* LXMQuicklyFixConst.h */,
+				829B6EF424AF0EA400B38769 /* LXMQuicklyFix.h */,
+				829B6EF524AF0EA400B38769 /* LXMQuicklyFix.m */,
+			);
+			path = QuicklyFix;
+			sourceTree = "<group>";
+		};
+		829B6EFA24AF113C00B38769 /* Aspects */ = {
+			isa = PBXGroup;
+			children = (
+				829B6EFB24AF113C00B38769 /* Aspects.h */,
+				829B6EFC24AF113C00B38769 /* Aspects.m */,
+			);
+			path = Aspects;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,8 +297,10 @@
 			files = (
 				829B6EC624AF0E4700B38769 /* ViewController.m in Sources */,
 				829B6EC024AF0E4700B38769 /* AppDelegate.m in Sources */,
+				829B6EF624AF0EA400B38769 /* LXMQuicklyFix.m in Sources */,
 				829B6ED124AF0E4C00B38769 /* main.m in Sources */,
 				829B6EC324AF0E4700B38769 /* SceneDelegate.m in Sources */,
+				829B6EFD24AF113C00B38769 /* Aspects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +472,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73PM9FMYFF;
 				INFOPLIST_FILE = LXMQuicklyFix/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +490,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73PM9FMYFF;
 				INFOPLIST_FILE = LXMQuicklyFix/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

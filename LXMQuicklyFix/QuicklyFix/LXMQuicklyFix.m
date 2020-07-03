@@ -6,22 +6,22 @@
 //  Copyright © 2020 lin. All rights reserved.
 //
 
-#import "QuicklyFix.h"
+#import "LXMQuicklyFix.h"
 #import <JavaScriptCore/JavaScriptCore.h>
-#import "QuicklyFixConst.h"
+#import "LXMQuicklyFixConst.h"
 #import "Aspects.h"
 #import <objc/runtime.h>
 
-@interface QuicklyFix()
+@interface LXMQuicklyFix()
 @property (nonatomic,strong)JSContext *jsContext;
 @end
 
-@implementation QuicklyFix
+@implementation LXMQuicklyFix
 + (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
-    static QuicklyFix *instance;
+    static LXMQuicklyFix *instance;
     dispatch_once(&onceToken, ^{
-        instance = [[QuicklyFix alloc] init];
+        instance = [[LXMQuicklyFix alloc] init];
     });
     return instance;
 }
@@ -60,15 +60,15 @@
 - (void)initialize {
     
     __weak typeof(self) weakSelf = self;
-    self.jsContext[QuicklyFixConstReplaceInstanceMethod] = ^(NSString *instanceName, NSString *selectorName, JSValue *fixImpl) {
+    self.jsContext[LXMQuicklyFixConstReplaceInstanceMethod] = ^(NSString *instanceName, NSString *selectorName, JSValue *fixImpl) {
         [weakSelf fixWithMethod:NO aspectionOptions:AspectPositionInstead instanceName:instanceName selectorName:selectorName fixImp:fixImpl];
     };
     
-    [self jsContext][@"runInvocation"] = ^(NSInvocation *invocation) {
+    self.jsContext[LXMQuicklyFixConstRunInvocation] = ^(NSInvocation *invocation) {
         [invocation invoke];
     };
-    [[self jsContext] evaluateScript:@"var console = {}"];
-    [self jsContext][@"console"][@"log"] = ^(id message) {
+    [self.jsContext evaluateScript:@"var console = {}"];
+    self.jsContext[@"console"][@"log"] = ^(id message) {
         NSLog(@"Javascript log: %@",message);
     };
 }
